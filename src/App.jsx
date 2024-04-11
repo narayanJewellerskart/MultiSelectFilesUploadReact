@@ -16,7 +16,12 @@ function App() {
 	return (
 		<>
 			<main className='flex justify-center items-center h-screen'>
-				<input type='file' multiple className='border-2 border-black px-3 py-5 rounded-2xl' onChange={(e) => setFilesSelected(e.target.files)} />
+				<form className=''>
+					<input type='file' multiple className='border-2 border-violet-800 px-3 py-4 rounded-l-md' onChange={(e) => setFilesSelected(e.target.files)} />
+					<button type='submit' className='text-white border-[1.5px] border-violet-800 bg-violet-800 font-semibold tracking-wider px-3 py-5 rounded-r-md'>
+						Send to S3
+					</button>
+				</form>
 			</main>
 		</>
 	);
