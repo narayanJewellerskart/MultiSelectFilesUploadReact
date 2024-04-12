@@ -1,6 +1,15 @@
-import { SlButton } from "@shoelace-style/shoelace/dist/react";
+import { SlButton, SlRating, SlTab, SlTabGroup, SlTabPanel } from "@shoelace-style/shoelace/dist/react";
+import { useState } from "react";
 
 const BasicTestFile = () => {
+	// Initialize state for the rating value
+	const [rating, setRating] = useState(2.5);
+
+	// Function to handle rating change
+	const handleRatingChange = (event) => {
+		setRating(parseFloat(event.detail.value));
+	};
+
 	return (
 		<div className='flex flex-wrap items-center justify-center gap-5 py-8'>
 			<SlButton variant='default' className='w-96'>
@@ -31,6 +40,35 @@ const BasicTestFile = () => {
 			<SlButton variant='neutral' size='large' className='w-96'>
 				<p className='py-2 px-5 font-bold tracking-widest'>Neutral Size Large</p>
 			</SlButton>
+			{/* -----------Size------------- */}
+			<SlRating
+				label='Rating'
+				precision={0.1}
+				value={rating}
+				onSlHover={handleRatingChange}
+				// onSlChange={handleRatingChange} // Add onChange event handler
+			/>
+			<p>Current Rating: {rating}</p>
+			{/* -----------Size------------- */}
+			<SlTabGroup>
+				<SlTab slot='nav' panel='general'>
+					General
+				</SlTab>
+				<SlTab slot='nav' panel='custom'>
+					Custom
+				</SlTab>
+				<SlTab slot='nav' panel='advanced'>
+					Advanced
+				</SlTab>
+				<SlTab slot='nav' panel='disabled'>
+					Disabled
+				</SlTab>
+
+				<SlTabPanel name='general'>This is the general tab panel.</SlTabPanel>
+				<SlTabPanel name='custom'>This is the custom tab panel.</SlTabPanel>
+				<SlTabPanel name='advanced'>This is the advanced tab panel.</SlTabPanel>
+				<SlTabPanel name='disabled'>This is a disabled tab panel.</SlTabPanel>
+			</SlTabGroup>
 		</div>
 	);
 };
