@@ -1,30 +1,16 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import FileUploader from "./components/FileUploader";
+import "@shoelace-style/shoelace/dist/themes/light.css";
+import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path";
+import BasicTestFile from "./components/BasicTestFile";
 
-function App() {
-	const [filesSelected, setFilesSelected] = useState([]);
+setBasePath("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/");
 
-	useEffect(() => {
-		console.log(filesSelected);
-	}, [filesSelected]);
-
-	// const handleFileChange = (e) => {
-	// 	const selectedFiles = Array.from(e.target.files);
-	// 	setFilesSelected(selectedFiles);
-	// };
-
+const App = () => {
 	return (
-		<>
-			<main className='flex justify-center items-center h-screen'>
-				<form className=''>
-					<input type='file' multiple className='border-2 border-violet-800 px-3 py-4 rounded-l-md' onChange={(e) => setFilesSelected(e.target.files)} />
-					<button type='submit' className='text-white border-[1.5px] border-violet-800 bg-violet-800 font-semibold tracking-wider px-3 py-5 rounded-r-md'>
-						Send to S3
-					</button>
-				</form>
-			</main>
-		</>
+		<main className='w-screen flex flex-col items-center'>
+			<BasicTestFile />
+		</main>
 	);
-}
+};
 
 export default App;
