@@ -10,3 +10,33 @@
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 }
+
+.main {
+	position: relative;
+	width: 100vw;
+	min-height: 100vh;
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.background::before {
+	content: "";
+	position: absolute;
+	height: 1e3px;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1e3px;
+	-webkit-filter: blur(0px);
+	filter: blur(0px);
+	background: radial-gradient(55.87% 55.87% at 35.49% -18.37%, #d1aaff 0%, rgba(255, 255, 255, 0) 100%),
+		radial-gradient(70.81% 48.44% at -24.53% -16.02%, #c88bc4 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(91.61% 92.58% at 104.86% -43.36%, #7b8fdd 0%, rgba(255, 255, 255, 0) 100%),
+		radial-gradient(50.59% 55.55% at -2.99% -8.69%, #86bff2 9.06%, rgba(255, 255, 255, 0) 100%), #f7fafc;
+}

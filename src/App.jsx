@@ -7,9 +7,8 @@ setBasePath("https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/")
 
 const App = () => {
 	return (
-		<main className='w-screen flex flex-col items-center'>
-			<BasicTestFile />
-		</main>
+		// <main className='w-screen flex flex-col items-center'></main>
+		<BasicTestFile />
 	);
 };
 
